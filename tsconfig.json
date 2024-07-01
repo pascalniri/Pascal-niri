@@ -32,8 +32,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/projects/layout.jsx"
-, "src/app/page.tsx"  ],
+    "src/app/projects copy/layout.jsx",
+    "src/app/page.tsx"
+  ],
   "exclude": [
     "node_modules"
   ]
