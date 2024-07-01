@@ -3,9 +3,8 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div className='mb-[50px] md:mb-[0px] bg-[#1A0B2E] flex flex-row justify-between items-center py-[20px] font-poppins'>
-        <h1 className='bg-transparent text-[20px] font-bold'>PN</h1>
-        <div className='flex gap-x-5 bg-transparent'>
+    <div className='mb-[50px] md:mb-[0px] bg-[#1A0B2E] flex flex-row justify-center items-center py-[20px] font-poppins sticky top-0'>
+        <div className='flex font-alata gap-x-5 md:gap-x-[60px] bg-transparent'>
             <Link href="/" >Home</Link>
             <Link href="/about" >About</Link>
             <Link href="/projects" >Projects</Link>
@@ -15,4 +14,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;
