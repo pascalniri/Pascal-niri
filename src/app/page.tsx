@@ -1,6 +1,7 @@
 import pascal from "/public/pascal.jpg";
 import Image from "next/image";
 import About from "@/components/about/About";
+import Projects from "@/components/projects/Projects";
 
 export default function Home() {
   return (
@@ -47,6 +48,9 @@ export default function Home() {
       </section>
       <section className="mx-auto px-4 min-h-[100vh] sm:px-[50px] md:px-[100px] lg:px-[60px]">
         <About />
+      </section>
+      <section className="mx-auto px-4 min-h-[100vh] sm:px-[50px] md:px-[100px] lg:px-[60px]">
+        <Projects />
       </section>
     </div>
   );

@@ -36,8 +36,8 @@ const About = () => {
 
 
   return (
-    <div className='py-[100px] md:py-[20px] flex flex-col justify-center items-center'>
-        <h1 className='mb-[70px] font-alata text-[50px]'><span className='text-[#7127BA]'>X</span>-periences</h1>
+    <div id='about' className='py-[100px] md:py-[20px] flex flex-col justify-center items-center'>
+        <h1 className='mb-[70px] font-alata text-[30px]'><span className='text-[#7127BA]'>X</span>-periences</h1>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
         
         {
