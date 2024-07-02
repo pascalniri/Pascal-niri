@@ -39,7 +39,7 @@ export default function Home() {
               </p>
             </div>
             <div className="mt-[20px]">
-              <button className="border-[2px] border-[#693B93] bg-[#2C1250] px-[30px] py-[10px] rounded-md text-[14px] font-medium text-[#ffffff]">
+            <button className="bg-[#2C1250] px-[30px] py-[10px] rounded-[7px] text-[12px] font-poppins font-light text-[#ffffff] outline-none border border-[#7127BA] hover:bg-[#855bbf60] mt-[10px]">
                 Hire me
               </button>
             </div>

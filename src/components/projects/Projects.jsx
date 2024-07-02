@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Projects = () => {
   return (
-    <div className="flex flex-col justify-center items-center md:mt-[100px]">
+    <div className="mx-auto flex flex-col justify-center items-center md:mt-[100px] lg:w-[80%]">
       <div className="flex flex-col justify-center items-center text-center">
         <h1 className="font-alata text-[20px]">
           I am currently looking to join a{" "}
@@ -40,10 +40,7 @@ const Projects = () => {
             This will be the full sescription of a project either I featured on or the one I have built personally without anyones help. I hope this description will provide more information on about my skills in UI/UX design or software engineering bottom will be also a button which directs someone to that project listed in my portfolio section
             </p>
             <div className="mt-5">
-              <Link
-                href="#"
-                className="border-[2px] border-[#693B93] bg-[#2C1250] px-[30px] py-[10px] rounded-md text-[12px] font-medium text-[#ffffff] mt-5"
-              >
+            <Link href="#" className="bg-[#2C1250] px-[30px] py-[10px] rounded-[7px] text-[12px] font-poppins font-light text-[#ffffff] outline-none border border-[#7127BA] hover:bg-[#855bbf60] mt-[10px]">
                 Visit the site
               </Link>
             </div>
@@ -62,10 +59,7 @@ const Projects = () => {
               This will be the full sescription of a project either I featured on or the one I have built personally without anyones help. I hope this description will provide more information on about my skills in UI/UX design or software engineering bottom will be also a button which directs someone to that project listed in my portfolio section
             </p>
             <div className="mt-5">
-              <Link
-                href="#"
-                className="border-[2px] border-[#693B93] bg-[#2C1250] px-[30px] py-[10px] rounded-md text-[12px] font-medium text-[#ffffff] mt-5"
-              >
+            <Link href="#" className="bg-[#2C1250] px-[30px] py-[10px] rounded-[7px] text-[12px] font-poppins font-light text-[#ffffff] outline-none border border-[#7127BA] hover:bg-[#855bbf60] mt-[10px]">
                 Visit the site
               </Link>
             </div>
