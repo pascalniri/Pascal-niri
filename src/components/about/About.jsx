@@ -1,9 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import one from "/public/one.svg";
-import two from "/public/two.svg";
-import three from "/public/three.svg";
-import four from "/public/four.svg";
 import Link from "next/link";
 
 const About = () => {
