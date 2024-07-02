@@ -1,3 +1,5 @@
+"use client"
+
 import { useState, useEffect } from "react";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
 import { FaHandPointRight } from "react-icons/fa";
@@ -70,6 +72,11 @@ const Exp1 = () => {
       setName('');
       setMessage('');
     }  
+  }
+
+  // Ensure component only renders on client side
+  if (typeof window === "undefined") {
+    return null; // Render nothing on server-side
   }
 
   return (
