@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect } from "react";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
 import { FaHandPointRight } from "react-icons/fa";
@@ -48,7 +47,8 @@ const Exp1 = () => {
 
   // Save submitted comments to localStorage whenever it changes
   useEffect(() => {
-    if (typeof window !== "undefined") { // Ensure code runs on client side
+    if (typeof window !== "undefined") {
+      // Update localStorage on every change
       localStorage.setItem("submittedComments", JSON.stringify(submittedComments));
     }
   }, [submittedComments]);
@@ -65,18 +65,13 @@ const Exp1 = () => {
         name: name,
         message: message,
       };
-      // Add the new comment to submittedComments state
+      // Update the state with the new comment
       setSubmittedComments([...submittedComments, newComment]);
 
       // Clear name and message fields after submission
       setName('');
       setMessage('');
-    }  
-  }
-
-  // Ensure component only renders on client side
-  if (typeof window === "undefined") {
-    return null; // Render nothing on server-side
+    }
   }
 
   return (
@@ -128,7 +123,7 @@ const Exp1 = () => {
             <form className="w-full" onSubmit={handleSubmit} >
               <input id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Enter your name" className="w-full bg-[#2C1250] px-[20px] py-[10px] rounded-[7px] text-[12px] font-poppins font-light text-[#d4d4d4] outline-none border border-[#7127BA]" />
               <textarea id="message" name="message" value={message} onChange={(e) => setMessage(e.target.value)} type="text"  placeholder="Your comment" className="w-full h-[200px] bg-[#2C1250] px-[20px] py-[10px] rounded-[7px] text-[12px] font-poppins font-light text-[#d4d4d4] outline-none border border-[#7127BA] mt-[20px]"  />
-                {error && <p className="text-[12px] font-poppins font-light text-red-500">{error}</p>}
+              {error && <p className="text-[12px] font-poppins font-light text-red-500">{error}</p>}
               <button className="bg-[#2C1250] px-[30px] py-[10px] rounded-[7px] text-[12px] font-poppins font-light text-[#ffffff] outline-none border border-[#7127BA] hover:bg-[#855bbf60] mt-[10px]">
                 Send it!
               </button>
