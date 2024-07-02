@@ -1,4 +1,4 @@
-"use client"; // Add this line at the top
+"use client"
 
 import { useState, useEffect } from "react";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
@@ -48,17 +48,17 @@ const Exp1 = () => {
 
   // Save submitted comments to localStorage whenever it changes
   useEffect(() => {
-    localStorage.setItem("submittedComments", JSON.stringify(submittedComments));
+    if (typeof window !== "undefined") { // Ensure code runs on client side
+      localStorage.setItem("submittedComments", JSON.stringify(submittedComments));
+    }
   }, [submittedComments]);
 
-  function handleSubmit (e) {
-
+  function handleSubmit(e) {
     e.preventDefault();
 
-    if(!name || !message) {
+    if (!name || !message) {
       setError('Please fill in both fields.');
-    }
-    else{
+    } else {
       setError('');
       // Create a new comment object
       const newComment = {
