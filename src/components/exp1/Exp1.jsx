@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useEffect } from "react";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
 import { FaHandPointRight } from "react-icons/fa";
@@ -40,7 +38,7 @@ const Exp1 = () => {
   ];
 
   // Load submitted comments from localStorage on initial render
-  const initialComments = JSON.parse(localStorage.getItem("submittedComments")) || [];
+  const initialComments = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("submittedComments")) || [] : [];
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
