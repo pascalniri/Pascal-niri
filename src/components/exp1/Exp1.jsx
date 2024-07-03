@@ -3,7 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
 import { FaHandPointRight } from "react-icons/fa";
-import { addDoc, collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { addDoc, collection, getDocs, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import firestore from "../../app/firebase";
 
 const Exp1 = () => {
@@ -12,6 +12,8 @@ const Exp1 = () => {
   const [comments, setComments] = useState([]);
   const [passwordInput, setPasswordInput] = useState("");
   const [commentToDelete, setCommentToDelete] = useState(null);
+  const [commentToEdit, setCommentToEdit] = useState(null);
+  const [editedComment, setEditedComment] = useState("");
   const [errors, setErrors] = useState({ name: "", comment: "" });
 
   const password = "2002"; // Set the password directly in the code
@@ -20,9 +22,9 @@ const Exp1 = () => {
     const fetchComments = async () => {
       const ref = collection(firestore, "messages");
       const snapshot = await getDocs(ref);
-      const commentsData = snapshot.docs.map(doc => ({
+      const commentsData = snapshot.docs.map((doc) => ({
         id: doc.id,
-        ...doc.data()
+        ...doc.data(),
       }));
       setComments(commentsData);
     };
@@ -33,9 +35,9 @@ const Exp1 = () => {
   const fetchComments = async () => {
     const ref = collection(firestore, "messages");
     const snapshot = await getDocs(ref);
-    const commentsData = snapshot.docs.map(doc => ({
+    const commentsData = snapshot.docs.map((doc) => ({
       id: doc.id,
-      ...doc.data()
+      ...doc.data(),
     }));
     setComments(commentsData);
   };
@@ -101,41 +103,56 @@ const Exp1 = () => {
     }
   };
 
+  const handleEditSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!validateTextOnly(editedComment)) {
+      setErrors({ ...errors, comment: "Comment can only contain letters and spaces." });
+      return;
+    }
+
+    try {
+      const commentRef = doc(firestore, "messages", commentToEdit);
+      await updateDoc(commentRef, { comment: editedComment });
+      console.log("Document successfully updated!");
+      setCommentToEdit(null);
+      setEditedComment("");
+      fetchComments();
+    } catch (error) {
+      console.error("Error updating document: ", error);
+    }
+  };
+
   const experiences = [
     {
       id: 1,
       title: "Conducting Surveys and Interviews",
-      desc:
-        "Gathering qualitative and quantitative data through direct interactions with users to understand their needs, preferences, and pain points.",
+      desc: "Gathering qualitative and quantitative data through direct interactions with users to understand their needs, preferences, and pain points.",
     },
     {
       id: 2,
       title: "Analyzing User Behavior",
-      desc:
-        "Utilizing tools and techniques such as user observations, usability testing, and analytics to gain insights into how users interact with interfaces.",
+      desc: "Utilizing tools and techniques such as user observations, usability testing, and analytics to gain insights into how users interact with interfaces.",
     },
     {
       id: 3,
       title: "Creating User Personas",
-      desc:
-        "Developing detailed user personas to represent different user types and guide design decisions.",
+      desc: "Developing detailed user personas to represent different user types and guide design decisions.",
     },
     {
       id: 4,
       title: "Synthesizing Data",
-      desc:
-        "Compiling and interpreting data to identify trends and inform design strategies that enhance the user experience.",
+      desc: "Compiling and interpreting data to identify trends and inform design strategies that enhance the user experience.",
     },
     {
       id: 5,
       title: "Iterative Testing",
-      desc:
-        "Continuously testing and refining designs based on user feedback to ensure the final product meets user expectations and business goals.",
+      desc: "Continuously testing and refining designs based on user feedback to ensure the final product meets user expectations and business goals.",
     },
   ];
 
   return (
-    <div className='mx-auto px-4 min-h-[100vh] sm:px-[50px] md:px-[100px] lg:px-[60px] lg:w-[80%]'>
+    <div className="mx-auto px-4 min-h-[100vh] sm:px-[50px] md:px-[100px] lg:px-[60px] lg:w-[80%]">
       <div>
         <div className="flex flex-row gap-5 px-[20px] py-[30px] rounded-[10px] bg-[#2C1250] md:mt-[30px]">
           <VscDebugBreakpointLog className="text-[40px]" />
@@ -164,31 +181,63 @@ const Exp1 = () => {
 
           <h1 className="font-alata text-[20px] underline">Comments</h1>
           <div className="mt-[30px]">
-            {comments.map(comment => (
+            {comments.map((comment) => (
               <div key={comment.id} className="mb-[20px] p-[20px] bg-[#2C1250] rounded-[7px]">
-                <p className="text-[14px] font-poppins font-light text-[#d4d4d4]">
-                  <strong>{comment.name}:</strong> {comment.comment}
-                </p>
-                <button 
-                  className="bg-red-500 px-[10px] py-[5px] rounded-[7px] text-[12px] font-poppins font-light text-[#ffffff] outline-none border border-red-700 hover:bg-red-700 mt-[10px]"
-                  onClick={() => setCommentToDelete(comment.id)}
-                >
-                  Delete
-                </button>
-                {commentToDelete === comment.id && (
-                  <>
-                    <input
-                      type="password"
-                      placeholder="Enter password"
-                      className="w-full bg-[#2C1250] px-[20px] py-[10px] rounded-[7px] text-[12px] font-poppins font-light text-[#d4d4d4] outline-none border border-[#7127BA] mt-[10px]"
-                      onChange={(e) => setPasswordInput(e.target.value)}
+                {commentToEdit === comment.id ? (
+                  <form onSubmit={handleEditSubmit}>
+                    <textarea
+                      value={editedComment}
+                      onChange={(e) => setEditedComment(e.target.value)}
+                      className="w-full h-[100px] bg-[#2C1250] px-[20px] py-[10px] rounded-[7px] text-[12px] font-poppins font-light text-[#d4d4d4] outline-none border border-[#7127BA]"
                     />
-                    <button 
-                      className="bg-red-500 px-[10px] py-[5px] rounded-[7px] text-[12px] font-poppins font-light text-[#ffffff] outline-none border border-red-700 hover:bg-red-700 mt-[10px]"
-                      onClick={handleDelete}
-                    >
-                      Confirm Delete
+                    {errors.comment && <p className="text-red-500 text-xs mt-1">{errors.comment}</p>}
+                    <button className="bg-green-500 px-[10px] py-[5px] rounded-[7px] text-[12px] font-poppins font-light text-[#ffffff] outline-none border border-green-700 hover:bg-green-700 mt-[10px]">
+                      Save
                     </button>
+                    <button
+                      type="button"
+                      className="bg-gray-500 px-[10px] py-[5px] rounded-[7px] text-[12px] font-poppins font-light text-[#ffffff] outline-none border border-gray-700 hover:bg-gray-700 mt-[10px] ml-[10px]"
+                      onClick={() => setCommentToEdit(null)}
+                    >
+                      Cancel
+                    </button>
+                  </form>
+                ) : (
+                  <>
+                    <p className="text-[14px] font-poppins font-light text-[#d4d4d4]">
+                      <strong>{comment.name}:</strong> {comment.comment}
+                    </p>
+                    <button
+                      className="bg-blue-500 px-[10px] py-[5px] rounded-[7px] text-[12px] font-poppins font-light text-[#ffffff] outline-none border border-blue-700 hover:bg-blue-700 mt-[10px] mr-[10px]"
+                      onClick={() => {
+                        setCommentToEdit(comment.id);
+                        setEditedComment(comment.comment);
+                      }}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="bg-red-500 px-[10px] py-[5px] rounded-[7px] text-[12px] font-poppins font-light text-[#ffffff] outline-none border border-red-700 hover:bg-red-700 mt-[10px]"
+                      onClick={() => setCommentToDelete(comment.id)}
+                    >
+                      Delete
+                    </button>
+                    {commentToDelete === comment.id && (
+                      <>
+                        <input
+                          type="password"
+                          placeholder="Enter password"
+                          className="w-full bg-[#2C1250] px-[20px] py-[10px] rounded-[7px] text-[12px] font-poppins font-light text-[#d4d4d4] outline-none border border-[#7127BA] mt-[10px]"
+                          onChange={(e) => setPasswordInput(e.target.value)}
+                        />
+                        <button
+                          className="bg-red-500 px-[10px] py-[5px] rounded-[7px] text-[12px] font-poppins font-light text-[#ffffff] outline-none border border-red-700 hover:bg-red-700 mt-[10px]"
+                          onClick={handleDelete}
+                        >
+                          Confirm Delete
+                        </button>
+                      </>
+                    )}
                   </>
                 )}
               </div>
