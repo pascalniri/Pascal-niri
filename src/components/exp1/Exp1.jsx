@@ -43,7 +43,7 @@ const Exp1 = () => {
   };
 
   const validateTextOnly = (text) => {
-    const regex = /^[A-Za-z\s]*$/;
+    const regex = /^[\p{L}\p{N}\p{P}\p{S}\p{Zs}\p{Emoji}]*$/u;
     return regex.test(text);
   };
 
@@ -179,7 +179,7 @@ const Exp1 = () => {
             </div>
           ))}
 
-          <h1 className="font-alata text-[20px] underline">Comments</h1>
+          <h1 className="font-alata text-[20px]">Leave your comment(s)</h1>
           <div className="mt-[30px]">
             {comments.map((comment) => (
               <div key={comment.id} className="mb-[20px] p-[20px] bg-[#2C1250] rounded-[7px]">
@@ -244,7 +244,7 @@ const Exp1 = () => {
             ))}
           </div>
 
-          <h1 className="font-alata text-[20px] underline">Leave your comment</h1>
+          {/* <h1 className="font-alata text-[20px] underline">Leave your comment</h1> */}
           <div className="mt-[30px]">
             <form className="w-full" onSubmit={handleSubmit}>
               <input
