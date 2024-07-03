@@ -14,7 +14,7 @@ const About = () => {
       id: 2,
       image: "../two.svg",
       title: "Prototyping and Wireframing",
-      desc: "Prototyping and wireframing are essential skills for visualizing and testing design concepts before development begins. This experience includes creating low-fidelity wireframes to map out the basic...",
+      desc: "Prototyping and wireframing are essential skills for visualizing and testing design concepts before development begins. This experience includes creating low-fidelity...",
     },
     {
       id: 3,
@@ -26,7 +26,7 @@ const About = () => {
       id: 4,
       image: "../four.svg",
       title: "Agile and Collaborative Workflows",
-      desc: "Collaboration and flexibility are key in the fast-paced world of UI/UX design and software development. This experience involves working within Agile frameworks, participating in sprints, and using tools...",
+      desc: "Collaboration and flexibility are key in the fast-paced world of UI/UX design and software development. This experience involves working within Agile frameworks...",
     },
   ];
 
