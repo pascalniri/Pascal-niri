@@ -7,15 +7,17 @@ import { addDoc, collection } from "firebase/firestore";
 import firestore from "../../app/firebase"
 
 const Exp1 = () => {
-  const messageRef = useRef();
+  const nameRef = useRef();
+  const commentRef = useRef();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const message = messageRef.current.value;
+    const name = nameRef.current.value;
+    const comment = commentRef.current.value;
 
     try {
       const ref = collection(firestore, "messages");
-      await addDoc(ref, { message });
+      await addDoc(ref, { name, comment });
       console.log("Document successfully written!");
     } catch (error) {
       console.error("Error writing document: ", error);
@@ -89,7 +91,7 @@ const Exp1 = () => {
               <input
                 id="name"
                 name="name"
-                ref={messageRef}
+                ref={nameRef}
                 type="text"
                 placeholder="Enter your name"
                 className="w-full bg-[#2C1250] px-[20px] py-[10px] rounded-[7px] text-[12px] font-poppins font-light text-[#d4d4d4] outline-none border border-[#7127BA]"
@@ -97,6 +99,7 @@ const Exp1 = () => {
               <textarea
                 id="message"
                 name="message"
+                ref={commentRef}
                 type="text"
                 placeholder="Your comment"
                 className="w-full h-[200px] bg-[#2C1250] px-[20px] py-[10px] rounded-[7px] text-[12px] font-poppins font-light text-[#d4d4d4] outline-none border border-[#7127BA] mt-[20px]"
