@@ -6,7 +6,7 @@ import { FaHandPointRight } from "react-icons/fa";
 import { addDoc, collection, getDocs, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import firestore from "../../app/firebase";
 
-const Exp1 = () => {
+const Exp4 = () => {
   const nameRef = useRef();
   const commentRef = useRef();
   const [comments, setComments] = useState([]);
@@ -126,29 +126,69 @@ const Exp1 = () => {
   const experiences = [
     {
       id: 1,
-      title: "Conducting Surveys and Interviews",
-      desc: "Gathering qualitative and quantitative data through direct interactions with users to understand their needs, preferences, and pain points.",
+      title: "Agile Principles",
+      desc: "Agile is based on iterative development, where requirements and solutions evolve through collaboration between self-organizing cross-functional teams. Key principles include customer satisfaction, welcoming changing requirements, and delivering working software frequently.",
     },
     {
       id: 2,
-      title: "Analyzing User Behavior",
-      desc: "Utilizing tools and techniques such as user observations, usability testing, and analytics to gain insights into how users interact with interfaces.",
+      title: "Scrum Framework",
+      desc: "Scrum is a popular Agile framework that divides work into time-boxed iterations called sprints, typically lasting 1-4 weeks. Key roles include the Product Owner, Scrum Master, and Development Team. Scrum ceremonies include Sprint Planning, Daily Stand-ups, Sprint Reviews, and Retrospectives.",
     },
     {
       id: 3,
-      title: "Creating User Personas",
-      desc: "Developing detailed user personas to represent different user types and guide design decisions.",
+      title: "Kanban",
+      desc: "Kanban is another Agile approach that focuses on visualizing the workflow, limiting work in progress, and improving efficiency. It uses a Kanban board to track tasks through columns representing different stages of the workflow.",
     },
     {
       id: 4,
-      title: "Synthesizing Data",
-      desc: "Compiling and interpreting data to identify trends and inform design strategies that enhance the user experience.",
+      title: "Collaboration Tools",
+      desc: "Utilize tools like Jira, Trello, Asana, or Monday.com to manage tasks, track progress, and facilitate collaboration. Communication tools like Slack, Microsoft Teams, and Zoom are essential for remote and distributed teams.",
     },
     {
       id: 5,
-      title: "Iterative Testing",
-      desc: "Continuously testing and refining designs based on user feedback to ensure the final product meets user expectations and business goals.",
+      title: "User Stories and Epics",
+      desc: "Write user stories to capture requirements from the user's perspective. An epic is a large user story that can be broken down into smaller, more manageable user stories. This approach ensures that development is focused on user needs and business value.",
     },
+    {
+        id: 6,
+        title: "Backlog Grooming",
+        desc: "Regularly refine and prioritize the product backlog to ensure that the team is working on the most valuable and relevant tasks. This involves adding new user stories, updating existing ones, and removing outdated or irrelevant tasks.",
+      },
+      {
+        id: 7,
+        title: "ontinuous Integration and Continuous Deployment (CI/CD)",
+        desc: "Implement CI/CD practices to automate the testing and deployment of code. This ensures that changes are integrated smoothly and deployed frequently, reducing the risk of errors and enabling faster delivery of features.",
+      },
+      {
+        id: 8,
+        title: "Feedback Loops",
+        desc: "Establish regular feedback loops with stakeholders and users. This can be done through sprint reviews, user testing sessions, and feedback surveys. Continuous feedback helps ensure that the product meets user expectations and allows for timely adjustments.",
+      },
+      {
+        id: 9,
+        title: "Retrospectives",
+        desc: "Conduct retrospectives at the end of each sprint to reflect on what went well, what didn't, and how processes can be improved. This practice fosters a culture of continuous improvement and learning within the team.",
+      },
+      {
+        id: 10,
+        title: "Cross-Functional Teams",
+        desc: "Build cross-functional teams that include members with diverse skills, such as designers, developers, testers, and product managers. This diversity allows the team to address all aspects of product development collaboratively and efficiently.",
+      },
+      {
+        id: 11,
+        title: "Flexibility and Adaptability",
+        desc: "Be prepared to adapt to changes in requirements, technology, and market conditions. Agile methodologies emphasize the ability to pivot and adjust plans based on new information and changing circumstances.",
+      },
+      {
+        id: 12,
+        title: "Documentation and Knowledge Sharing",
+        desc: "Maintain clear and accessible documentation for processes, decisions, and product features. Encourage knowledge sharing through regular meetings, workshops, and documentation practices to ensure that team members are informed and aligned.",
+      },
+      {
+        id: 13,
+        title: "Stakeholder Engagement",
+        desc: "Involve stakeholders throughout the development process. Regular updates, demonstrations, and feedback sessions help keep stakeholders informed and engaged, ensuring their needs and expectations are met.",
+      },
   ];
 
   return (
@@ -157,12 +197,9 @@ const Exp1 = () => {
         <div className="flex flex-row gap-5 px-[20px] py-[30px] rounded-[10px] bg-[#2C1250] md:mt-[30px]">
           <VscDebugBreakpointLog className="text-[40px]" />
           <div>
-            <h1 className="font-alata text-[20px]">User Research and Analysis</h1>
+            <h1 className="font-alata text-[20px]">Agile and Collaborative Workflows</h1>
             <p className="text-[12px] font-poppins font-light text-[#d4d4d4] mt-[10px]">
-              Understanding user needs and behaviors is crucial for designing
-              intuitive and user-friendly interfaces. In my experience, this
-              involves:
-            </p>
+            Collaboration and flexibility are key in the fast-paced world of UI/UX design and software development. This experience involves working within Agile frameworks to ensure iterative progress, continuous feedback, and efficient collaboration among team members. Below are some key points I consider:</p>
           </div>
         </div>
 
@@ -221,4 +258,4 @@ const Exp1 = () => {
   );
 };
 
-export default Exp1;
+export default Exp4;

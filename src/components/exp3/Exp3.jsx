@@ -6,7 +6,7 @@ import { FaHandPointRight } from "react-icons/fa";
 import { addDoc, collection, getDocs, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import firestore from "../../app/firebase";
 
-const Exp1 = () => {
+const Exp3 = () => {
   const nameRef = useRef();
   const commentRef = useRef();
   const [comments, setComments] = useState([]);
@@ -126,29 +126,64 @@ const Exp1 = () => {
   const experiences = [
     {
       id: 1,
-      title: "Conducting Surveys and Interviews",
-      desc: "Gathering qualitative and quantitative data through direct interactions with users to understand their needs, preferences, and pain points.",
+      title: "User Research",
+      desc: "Conduct surveys, interviews, and usability testing to gather qualitative and quantitative data. Understanding your users' needs, preferences, and pain points will help you design interfaces that are intuitive and meet their expectations..",
     },
     {
       id: 2,
-      title: "Analyzing User Behavior",
-      desc: "Utilizing tools and techniques such as user observations, usability testing, and analytics to gain insights into how users interact with interfaces.",
+      title: "Responsive Design",
+      desc: "Ensure your designs are responsive, meaning they work well on a variety of devices and screen sizes. This includes using flexible grid layouts, scalable images, and CSS media queries to create a seamless user experience across desktops, tablets, and mobile devices.",
     },
     {
       id: 3,
-      title: "Creating User Personas",
-      desc: "Developing detailed user personas to represent different user types and guide design decisions.",
+      title: "Accessibility",
+      desc: "Design with accessibility in mind to ensure that your interfaces are usable by people with disabilities. Implementing features like keyboard navigation, screen reader compatibility, and sufficient color contrast will make your site inclusive and compliant with standards like WCAG (Web Content Accessibility Guidelines).",
     },
     {
       id: 4,
-      title: "Synthesizing Data",
-      desc: "Compiling and interpreting data to identify trends and inform design strategies that enhance the user experience.",
+      title: "Performance Optimization",
+      desc: "Optimize your website's performance by minimizing file sizes, leveraging browser caching, and using efficient coding practices. Faster load times improve user experience and can positively impact search engine rankings.",
     },
     {
       id: 5,
-      title: "Iterative Testing",
-      desc: "Continuously testing and refining designs based on user feedback to ensure the final product meets user expectations and business goals.",
+      title: "Usability",
+      desc: "Focus on usability to make your interfaces easy to navigate and interact with. This includes clear labeling, intuitive navigation, and providing feedback for user actions. Conducting usability testing can help identify areas for improvement.",
     },
+    {
+        id: 6,
+        title: "Cross-Browser Compatibility",
+        desc: "Ensure your website works correctly across different browsers and their various versions. Test your site in browsers like Chrome, Firefox, Safari, and Edge to identify and fix any compatibility issues.",
+      },
+      {
+        id: 7,
+        title: "Consistent Design Language",
+        desc: "Maintain a consistent design language throughout your site. This includes using a cohesive color scheme, typography, and design elements. Consistency helps users understand and navigate your site more easily.",
+      },
+      {
+        id: 8,
+        title: "Interactivity",
+        desc: "Incorporate interactive elements like animations, transitions, and dynamic content to engage users. Ensure these elements enhance the user experience without causing distractions or performance issues.",
+      },
+      {
+        id: 9,
+        title: "Component-Based Architecture",
+        desc: "Use a component-based architecture, such as in frameworks like React, Angular, or Vue.js, to build reusable and maintainable code. This approach allows for modular development and easier updates.",
+      },
+      {
+        id: 10,
+        title: "Testing and Debugging",
+        desc: "Regularly test your code for bugs and issues. Use tools like Jest, Mocha, or Cypress for automated testing, and browser developer tools for debugging. Continuous testing ensures a reliable and stable product.",
+      },
+      {
+        id: 11,
+        title: "Version Control",
+        desc: "Use version control systems like Git to manage your codebase. Version control allows you to track changes, collaborate with other developers, and revert to previous versions if necessary.",
+      },
+      {
+        id: 12,
+        title: "Documentation",
+        desc: "Maintain thorough documentation for your code and design decisions. Good documentation helps new team members get up to speed quickly and ensures that everyone understands the project's architecture and standards.",
+      },
   ];
 
   return (
@@ -157,12 +192,9 @@ const Exp1 = () => {
         <div className="flex flex-row gap-5 px-[20px] py-[30px] rounded-[10px] bg-[#2C1250] md:mt-[30px]">
           <VscDebugBreakpointLog className="text-[40px]" />
           <div>
-            <h1 className="font-alata text-[20px]">User Research and Analysis</h1>
+            <h1 className="font-alata text-[20px]">Front-End Development</h1>
             <p className="text-[12px] font-poppins font-light text-[#d4d4d4] mt-[10px]">
-              Understanding user needs and behaviors is crucial for designing
-              intuitive and user-friendly interfaces. In my experience, this
-              involves:
-            </p>
+            Understanding user needs and behaviors is crucial for designing intuitive and user-friendly interfaces. This experience involves conducting surveys, interviews, and analyzing user data to inform design decisions. Below are some key points I consider:            </p>
           </div>
         </div>
 
@@ -221,4 +253,4 @@ const Exp1 = () => {
   );
 };
 
-export default Exp1;
+export default Exp3;

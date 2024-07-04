@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Projects = () => {
   return (
-    <div className="mx-auto flex flex-col justify-center items-center md:mt-[100px] lg:w-[80%]">
+    <div className="mx-auto flex flex-col justify-center items-center pb-[100px] md:mt-[100px] lg:w-[80%]">
       <div className="flex flex-col justify-center items-center text-center">
         <h1 className="font-alata text-[20px]">
           I am currently looking to join a{" "}
