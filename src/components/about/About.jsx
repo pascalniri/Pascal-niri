@@ -9,24 +9,28 @@ const About = () => {
       image: "../one.svg",
       title: "User Research and Analysis",
       desc: "Understanding user needs and behaviors is crucial for designing intuitive and user-friendly interfaces. This experience involves conducting surveys, interviews,..",
+      path:"/exp1"
     },
     {
       id: 2,
       image: "../two.svg",
       title: "Prototyping and Wireframing",
       desc: "Prototyping and wireframing are essential skills for visualizing and testing design concepts before development begins. This experience includes creating low-fidelity...",
+       path:"/exp2"
     },
     {
       id: 3,
       image: "../three.svg",
       title: "Front-End Development",
       desc: "Understanding user needs and behaviors is crucial for designing intuitive and user-friendly interfaces. This experience involves conducting surveys, interviews,...",
+       path:"/exp3"
     },
     {
       id: 4,
       image: "../four.svg",
       title: "Agile and Collaborative Workflows",
       desc: "Collaboration and flexibility are key in the fast-paced world of UI/UX design and software development. This experience involves working within Agile frameworks...",
+       path:"/exp4"
     },
   ];
 
@@ -51,7 +55,7 @@ const About = () => {
                 {experience.desc}
               </p>
 
-              <Link href="/exp1">
+              <Link href={experience.path}>
                 <button className="bg-[#2C1250] px-[30px] py-[10px] rounded-[7px] text-[12px] font-poppins font-light text-[#ffffff] outline-none border border-[#7127BA] hover:bg-[#855bbf60] mt-[10px]">
                   Read more
                 </button>
